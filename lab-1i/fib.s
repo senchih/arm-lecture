@@ -17,31 +17,24 @@ fibonacci:
 	subs r4, r0, #0x0
 	@ if(R0 <= 0) goto .L3 (which returns 0)
 	ble .L3
-	@ Compare R4 wtih 1
-	cmp r4, #0x1
-	@ If R4 == 1 goto .L4 (which returns 1)
-	beq .L4
-	@ R0 = R4 - 1
-	subs r0, r4, #0x1
-	@ Recursive call to fibonacci with R4 - 1 as parameter
-	bl fibonacci
-	@ R5 = R0
-	add r5, r0, #0x0
-	@ R0 = R4 - 2
-	sub r0, r4, #0x2
-	@ Recursive call to fibonacci with R4 - 2 as parameter
-	bl fibonacci
-	@ R0 = R5 + R0 (update flags)
-	adds r0, r0, r5
+	@modified by arno
+	mov r3, #0x0
+	mov r5, #0x1
+	mov r0, #0x1
+loop:
+	subs r4, r4, #0x1
+	beq loop_end
+	add r0, r3, r5
+	mov r3, r5
+	mov r5, r0
+	b loop
+
+loop_end:
 	pop {r3, r4, r5, pc}		@EPILOG
 
 	@ END CODE MODIFICATION
 .L3:
-	mov r0, #0			@ R0 = 0
-	pop {r3, r4, r5, pc}		@ EPILOG
-
-.L4:
-	mov r0, #1			@ R0 = 1
+	mov r0, #0x0			@ R0 = 0
 	pop {r3, r4, r5, pc}		@ EPILOG
 
 	.size fibonacci, .-fibonacci
