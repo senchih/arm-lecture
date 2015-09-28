@@ -1,0 +1,9 @@
+set grid
+set title "Fibonacci Recursive"
+set ylabel "(1/1000) sec"
+set xlabel "number"
+
+set term png
+set output "fibonacci_recursive.png"
+
+plot 'dump.txt' smooth csplines

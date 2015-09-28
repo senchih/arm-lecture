@@ -23,7 +23,7 @@ fibseq.o: fibseq.c
 
 clean:
 	rm -f $(objects) fibseq
-	rm -f fibseq.txt
+	rm -f fibseq.txt dump.txt *.png
 QEMU_CMD = qemu-arm -L /usr/arm-linux-gnueabihf ./fibseq &
 CMD = yes 9 | $(call QEMU_CMD) && sleep 1
 qemu: 	fibseq
@@ -44,3 +44,4 @@ qemu: 	fibseq
 	@sleep 1
 	@yes 8 | $(call QEMU_CMD)
 	@sleep 1
+	@gnuplot plot

@@ -21,7 +21,7 @@ fibseq.o: fibseq.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 clean:
-	rm -f $(objects) fibseq fibseq.txt
+	rm -f $(objects) fibseq fibseq.txt dump.txt
 
 QEMU_CMD = qemu-arm -L /usr/arm-linux-gnueabihf ./fibseq &
 CMD = yes 9 | $(call QEMU_CMD) && sleep 1
