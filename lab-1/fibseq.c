@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
   result = fibonacci(number); 
   clock_t end = clock();
   
-  FILE *ofile = fopen("dump.txt", "a");
+  FILE *ofile = fopen("fib-recursive.txt", "a");
   double time = (double)(end-start)/CLOCKS_PER_SEC*1000;
   fprintf(ofile, "%d\t%f\n", number, time);
   fclose(ofile);

@@ -1,9 +1,9 @@
 set grid
-set title "Fibonacci Recursive"
+set title "Fib-Recursive"
 set ylabel "(1/1000) sec"
 set xlabel "number"
 
 set term png
-set output "fibonacci_recursive.png"
+set output "fib-recursive.png"
 
-plot 'dump.txt' smooth csplines
+plot 'fib-recursive.txt' smooth csplines
