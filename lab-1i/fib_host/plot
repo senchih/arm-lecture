@@ -1,0 +1,9 @@
+set grid
+set title "Fib-Recursive"
+set ylabel "us"
+set xlabel "number"
+
+set term png
+set output "fib-non_recursive.png"
+
+plot 'fib-non_recursive.txt' smooth csplines

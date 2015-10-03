@@ -41,6 +41,7 @@ loop:
 
 	@ END CODE MODIFICATION
 .L3:
+
 	pop {r3, r4, r5, pc}		@ EPILOG
 
 	.size fibonacci, .-fibonacci
